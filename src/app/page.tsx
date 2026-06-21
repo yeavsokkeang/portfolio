@@ -46,99 +46,107 @@ const NAV_ITEMS = [
 ];
 
 const SKILLS = [
-  { name: "TypeScript", icon: Code2, category: "Languages" },
+  // Languages
+  { name: "PHP", icon: Code2, category: "Languages" },
   { name: "JavaScript", icon: Code2, category: "Languages" },
-  { name: "Python", icon: Code2, category: "Languages" },
-  { name: "Rust", icon: Code2, category: "Languages" },
-  { name: "Go", icon: Code2, category: "Languages" },
-  { name: "React", icon: Globe, category: "Frontend" },
-  { name: "Next.js", icon: Globe, category: "Frontend" },
+  { name: "TypeScript", icon: Code2, category: "Languages" },
+  { name: "Dart", icon: Code2, category: "Languages" },
+
+  // Frontend
   { name: "Vue.js", icon: Globe, category: "Frontend" },
+  { name: "Next.js", icon: Globe, category: "Frontend" },
+  { name: "React", icon: Globe, category: "Frontend" },
   { name: "Tailwind CSS", icon: Palette, category: "Frontend" },
-  { name: "Node.js", icon: Server, category: "Backend" },
+  { name: "HTML5", icon: Globe, category: "Frontend" },
+  { name: "CSS3", icon: Palette, category: "Frontend" },
+
+  // Backend
+  { name: "Laravel", icon: Server, category: "Backend" },
+  { name: "REST API", icon: Server, category: "Backend" },
+  { name: "MySQL", icon: Database, category: "Backend" },
   { name: "PostgreSQL", icon: Database, category: "Backend" },
-  { name: "GraphQL", icon: Database, category: "Backend" },
-  { name: "Redis", icon: Database, category: "Backend" },
-  { name: "React Native", icon: Smartphone, category: "Mobile" },
+
+  // Mobile
   { name: "Flutter", icon: Smartphone, category: "Mobile" },
-  { name: "AWS", icon: Layers, category: "DevOps" },
-  { name: "Docker", icon: Server, category: "DevOps" },
-  { name: "Kubernetes", icon: GitBranch, category: "DevOps" },
+
+  // Tools & DevOps
   { name: "Git", icon: GitBranch, category: "DevOps" },
+  { name: "Docker", icon: Server, category: "DevOps" },
+  { name: "Linux", icon: Layers, category: "DevOps" },
   { name: "CI/CD", icon: GitBranch, category: "DevOps" },
 ];
 
-const SKILL_CATEGORIES = ["Languages", "Frontend", "Backend", "Mobile", "DevOps"];
+const SKILL_CATEGORIES = [
+  "Languages",
+  "Frontend",
+  "Backend",
+  "Mobile",
+  "DevOps",
+];
 
 const EXPERIENCES = [
   {
-    title: "Senior Full-Stack Engineer",
-    company: "TechForward Inc.",
-    period: "2023 — Present",
+    title: "Full-Stack Developer",
+    company: "Calmette Hospital",
+    period: "2026 — Present",
     description:
-      "Leading the development of a next-generation SaaS platform serving 50K+ users. Architected a microservices-based backend with event-driven patterns, reducing system latency by 40%. Mentoring a team of 5 junior developers and establishing code review practices that improved deployment success rate to 99.2%.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "AWS", "Kubernetes"],
+      "Working as a Full-Stack Developer responsible for developing and maintaining internal healthcare management systems and web applications. Building scalable solutions using Laravel, Vue.js, Next.js, and Flutter while collaborating with cross-functional teams to improve operational efficiency and user experience.",
+    tech: ["Laravel", "Vue.js", "Next.js", "Flutter", "MySQL"],
   },
   {
     title: "Full-Stack Developer",
-    company: "DataVista Labs",
-    period: "2021 — 2023",
+    company: "CamCyber Digital Tech Team",
+    period: "2024 — 2026",
     description:
-      "Built and maintained real-time data visualization dashboards used by enterprise clients across finance and healthcare sectors. Implemented WebSocket-based live data streaming capable of handling 10K+ concurrent connections. Reduced page load time by 60% through SSR optimization and intelligent caching strategies.",
-    tech: ["React", "Node.js", "GraphQL", "Redis", "Docker"],
+      "Developed and maintained multiple web and mobile applications for government and enterprise projects. Contributed to both frontend and backend development, designed RESTful APIs, optimized database performance, and delivered production-ready solutions using modern development practices.",
+    tech: ["Laravel", "Vue.js", "Next.js", "Flutter", "PostgreSQL"],
   },
+];
+
+const EDUCATION = [
   {
-    title: "Frontend Developer",
-    company: "CreativePixel Agency",
-    period: "2019 — 2021",
+    degree: "Bachelor's Degree in Information Technology",
+    institution: "Royal University of Phnom Penh (RUPP)",
+    period: "2020 — 2024",
     description:
-      "Delivered pixel-perfect, responsive web applications for 20+ clients ranging from startups to Fortune 500 companies. Introduced component-driven development with Storybook, which reduced UI bugs by 35% and improved design-to-code handoff efficiency. Pioneered the adoption of TypeScript across all new projects.",
-    tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Storybook"],
-  },
-  {
-    title: "Junior Developer",
-    company: "CodeStart Studio",
-    period: "2018 — 2019",
-    description:
-      "Developed responsive landing pages and interactive web features for small business clients. Gained foundational experience in modern JavaScript frameworks, version control workflows, and agile development methodologies. Contributed to open-source projects and built a personal project that gained 500+ GitHub stars.",
-    tech: ["JavaScript", "React", "CSS", "Git"],
+      "Studied software development, database systems, networking, and software engineering principles while building practical projects and strengthening problem-solving skills.",
   },
 ];
 
 const PROJECTS = [
   {
-    title: "CloudSync Pro",
+    title: "HRM (Human Resource Management)",
     description:
-      "A real-time collaborative workspace platform with live cursors, document editing, and video conferencing. Built for distributed teams who need seamless async and sync collaboration in one unified interface.",
-    tech: ["Next.js", "WebSocket", "PostgreSQL", "AWS"],
-    image: "cloud",
+      "A comprehensive Human Resource Management system designed to streamline employee management, attendance tracking, leave requests, payroll processing, and organizational workflows. Contributed to both frontend and backend development while ensuring a smooth user experience and scalable architecture.",
+    tech: ["Laravel", "Vue.js", "MySQL", "REST API"],
+    image: "hrm",
     link: "#",
     github: "#",
   },
   {
-    title: "DevMetrics",
+    title: "CCN Mobile",
     description:
-      "Developer productivity analytics dashboard that aggregates data from GitHub, Jira, and CI/CD pipelines. Provides actionable insights on cycle time, deployment frequency, and team velocity through interactive visualizations.",
-    tech: ["React", "Node.js", "GraphQL", "D3.js"],
-    image: "metrics",
+      "A cross-platform mobile application developed to provide users with seamless access to digital services and real-time information. Focused on performance optimization, responsive UI implementation, and API integration for a reliable mobile experience.",
+    tech: ["Flutter", "Laravel", "REST API"],
+    image: "mobile",
     link: "#",
     github: "#",
   },
   {
-    title: "FinTrack AI",
+    title: "Pintel (POS System)",
     description:
-      "AI-powered personal finance tracker with smart categorization, spending predictions, and natural language queries. Uses machine learning to provide personalized savings recommendations based on spending patterns.",
-    tech: ["Python", "FastAPI", "React", "TensorFlow"],
-    image: "finance",
+      "A Point of Sale system built to help businesses manage sales transactions, inventory, customer records, and reporting. Developed key modules for transaction processing, inventory management, and dashboard analytics to improve business operations.",
+    tech: ["Laravel", "Vue.js", "MySQL"],
+    image: "pos",
     link: "#",
     github: "#",
   },
   {
-    title: "PixelForge",
+    title: "News Mobile",
     description:
-      "Browser-based design tool for creating UI mockups and prototypes with real-time multiplayer collaboration. Features an extensible plugin system and exports to Figma, Sketch, and CSS formats.",
-    tech: ["Vue.js", "Canvas API", "WebRTC", "Rust WASM"],
-    image: "design",
+      "A mobile news application that delivers the latest articles and updates through an intuitive and user-friendly interface. Implemented content management integration, category filtering, push notifications, and responsive mobile experiences.",
+    tech: ["Flutter", "Laravel", "API Integration"],
+    image: "news",
     link: "#",
     github: "#",
   },
@@ -239,7 +247,7 @@ function Navbar() {
           className="text-lg font-bold tracking-tight hover:opacity-70 transition-opacity"
         >
           <span className="text-primary">&lt;</span>
-          Alex.dev
+          Phat.dev
           <span className="text-primary">/&gt;</span>
         </button>
 
@@ -305,7 +313,10 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Badge variant="secondary" className="mb-6 px-4 py-1.5 text-sm font-medium">
+          <Badge
+            variant="secondary"
+            className="mb-6 px-4 py-1.5 text-sm font-medium"
+          >
             <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
             Available for opportunities
           </Badge>
@@ -319,7 +330,7 @@ function HeroSection() {
         >
           Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
-            Alex Chen
+            SOPHAT ROEUN
           </span>
         </motion.h1>
 
@@ -339,7 +350,7 @@ function HeroSection() {
           className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8"
         >
           <MapPin size={14} />
-          <span>San Francisco, CA</span>
+          <span>Phnom Penh,Cambodia</span>
         </motion.div>
 
         <motion.div
@@ -348,12 +359,27 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
-          <Button size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
+          <Button
+            size="lg"
+            onClick={() =>
+              document
+                .querySelector("#contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
             <Mail className="mr-2 h-4 w-4" />
             Get in Touch
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <a href="#projects" onClick={(e) => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}>
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <Code2 className="mr-2 h-4 w-4" />
               View Projects
             </a>
@@ -367,17 +393,27 @@ function HeroSection() {
           className="flex items-center justify-center gap-4"
         >
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a
+              href="https://github.com/SopattRouen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
               <Github className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/sophat-roeun-289788336"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <Linkedin className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:alex@example.com" aria-label="Email">
+            <a href="mailto:sophatroeun148@gmail.com" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>
@@ -407,7 +443,9 @@ function AboutSection() {
     <Section id="about">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">About</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            About
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             A bit about me
           </h2>
@@ -416,36 +454,50 @@ function AboutSection() {
         <div className="grid md:grid-cols-3 gap-12 items-start">
           <motion.div variants={fadeUp} className="md:col-span-2 space-y-5">
             <p className="text-muted-foreground leading-relaxed text-lg">
-              I&apos;m a full-stack engineer with 7+ years of experience building web applications that
-              people actually enjoy using. My journey started with curiosity about how things work on the
-              internet and evolved into a deep passion for crafting clean, maintainable, and performant code
-              that solves real problems.
+              I’m a Full-Stack Developer with 2+ years of professional
+              experience building modern web and mobile applications. Currently,
+              I work as a Full-Stack Developer, transforming ideas into
+              scalable, user-friendly solutions using Laravel, Vue.js, Next.js,
+              and Flutter. I enjoy creating applications that are not only
+              functional but also deliver a seamless experience for users.
             </p>
+
             <p className="text-muted-foreground leading-relaxed text-lg">
-              I thrive at the intersection of design and engineering — where pixel-perfect UIs meet robust,
-              scalable architectures. Whether it&apos;s architecting a microservices backend, optimizing a
-              database query that shaves 200ms off response time, or building a delightfully smooth animation,
-              I care deeply about the details that make a product feel right.
+              My experience covers both frontend and backend development,
+              allowing me to build complete products from concept to deployment.
+              Whether it’s developing secure APIs with Laravel, crafting
+              responsive interfaces with Vue.js and Next.js, or building
+              cross-platform mobile applications with Flutter, I focus on
+              writing clean, maintainable, and high-performance code that solves
+              real-world problems.
             </p>
+
             <p className="text-muted-foreground leading-relaxed text-lg">
-              When I&apos;m not coding, you&apos;ll find me contributing to open-source projects, writing
-              technical articles on system design patterns, or experimenting with new frameworks before they
-              hit the mainstream. I believe the best software is built by engineers who never stop learning.
+              Currently, I am managing and contributing to four active projects,
+              which has strengthened my ability to handle complex requirements,
+              collaborate effectively, and deliver quality solutions on time.
+              I’m passionate about continuous learning, exploring emerging
+              technologies, and improving my skills to build better software and
+              create meaningful digital experiences.
             </p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Years Experience", value: "7+" },
-                { label: "Projects Shipped", value: "40+" },
+                { label: "Years Experience", value: "2+" },
+                { label: "Projects Shipped", value: "4+" },
                 { label: "Open Source Contrib", value: "120+" },
-                { label: "GitHub Stars", value: "2.5K" },
+                { label: "GitHub Stars", value: "1K" },
               ].map((stat) => (
                 <Card key={stat.label} className="text-center">
                   <CardContent className="pt-6">
-                    <p className="text-2xl font-bold text-emerald-600">{stat.value}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                    <p className="text-2xl font-bold text-emerald-600">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {stat.label}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -458,7 +510,7 @@ function AboutSection() {
                   <span className="text-sm font-medium">Quick Facts</span>
                 </div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Based in San Francisco, CA</li>
+                  <li>Based in Phnom Penh,Cambodia</li>
                   <li>Open to remote & hybrid roles</li>
                   <li>Conference speaker (3 events)</li>
                   <li>Open-source maintainer</li>
@@ -482,13 +534,16 @@ function SkillsSection() {
     <Section id="skills" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">Skills</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            Skills
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Technologies I work with
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            I&apos;ve worked across the full stack, from crafting pixel-perfect interfaces to designing
-            distributed backend systems. Here are the tools and technologies I use day-to-day.
+            I&apos;ve worked across the full stack, from crafting pixel-perfect
+            interfaces to designing distributed backend systems. Here are the
+            tools and technologies I use day-to-day.
           </p>
         </motion.div>
 
@@ -512,7 +567,10 @@ function SkillsSection() {
           ))}
         </motion.div>
 
-        <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        <motion.div
+          variants={stagger}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+        >
           {filtered.map((skill) => {
             const Icon = skill.icon;
             return (
@@ -523,8 +581,12 @@ function SkillsSection() {
                       <Icon className="h-4 w-4" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium truncate">{skill.name}</p>
-                      <p className="text-xs text-muted-foreground">{skill.category}</p>
+                      <p className="text-sm font-medium truncate">
+                        {skill.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {skill.category}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -542,7 +604,9 @@ function ExperienceSection() {
     <Section id="experience">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">Experience</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            Experience
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Where I&apos;ve worked
           </h2>
@@ -571,7 +635,9 @@ function ExperienceSection() {
 
                 <div className="flex items-center gap-2 mb-3">
                   <Briefcase className="h-3.5 w-3.5 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">{exp.period}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {exp.period}
+                  </span>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -601,8 +667,19 @@ function ExperienceSection() {
             <GraduationCap className="h-5 w-5 text-emerald-600" />
             <h3 className="text-lg font-semibold">Education</h3>
           </div>
+
+          <h4 className="font-medium">
+            Bachelor's Degree in Information Technology
+          </h4>
+
           <p className="text-muted-foreground">
-            B.S. Computer Science — University of California, Berkeley (2018)
+            Royal University of Phnom Penh (RUPP)
+          </p>
+
+          <p className="text-sm text-muted-foreground mt-2">
+            Focused on software development, database systems, networking, and
+            modern web technologies while building practical projects and
+            strengthening problem-solving skills.
           </p>
         </motion.div>
       </div>
@@ -629,13 +706,15 @@ function ProjectsSection() {
     <Section id="projects" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">Projects</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            Projects
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Selected work
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            A curated selection of projects that showcase my approach to solving complex problems
-            with clean, thoughtful engineering.
+            A curated selection of projects that showcase my approach to solving
+            complex problems with clean, thoughtful engineering.
           </p>
         </motion.div>
 
@@ -648,7 +727,9 @@ function ProjectsSection() {
                   className={`h-48 bg-gradient-to-br ${PROJECT_COLORS[i]} flex items-center justify-center relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]" />
-                  <div className={`w-12 h-12 rounded-xl ${PROJECT_ACCENTS[i]} flex items-center justify-center shadow-lg`}>
+                  <div
+                    className={`w-12 h-12 rounded-xl ${PROJECT_ACCENTS[i]} flex items-center justify-center shadow-lg`}
+                  >
                     <Code2 className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -657,12 +738,22 @@ function ProjectsSection() {
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <h3 className="text-lg font-semibold">{project.title}</h3>
                     <div className="flex gap-2 shrink-0">
-                      <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8"
+                        asChild
+                      >
                         <a href={project.github} aria-label="View source">
                           <Github className="h-4 w-4" />
                         </a>
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8"
+                        asChild
+                      >
                         <a href={project.link} aria-label="View live">
                           <ExternalLink className="h-4 w-4" />
                         </a>
@@ -676,7 +767,11 @@ function ProjectsSection() {
 
                   <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
-                      <Badge key={t} variant="outline" className="text-xs font-normal">
+                      <Badge
+                        key={t}
+                        variant="outline"
+                        className="text-xs font-normal"
+                      >
                         {t}
                       </Badge>
                     ))}
@@ -696,12 +791,15 @@ function TestimonialsSection() {
     <Section id="testimonials">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">Testimonials</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            Testimonials
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             What people say
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            Kind words from colleagues and clients I&apos;ve had the pleasure of working with over the years.
+            Kind words from colleagues and clients I&apos;ve had the pleasure of
+            working with over the years.
           </p>
         </motion.div>
 
@@ -712,7 +810,10 @@ function TestimonialsSection() {
                 <CardContent className="pt-6">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-amber-400 text-amber-400"
+                      />
                     ))}
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -727,7 +828,9 @@ function TestimonialsSection() {
                     </Avatar>
                     <div>
                       <p className="text-sm font-medium">{testimonial.name}</p>
-                      <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -743,23 +846,40 @@ function TestimonialsSection() {
 function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    const form = e.currentTarget;
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const res = await fetch("https://formspree.io/f/xjgqboqa", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      setSubmitted(true);
+      form.reset();
+      setTimeout(() => setSubmitted(false), 3000);
+    }
   };
 
   return (
     <Section id="contact" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">Contact</p>
+          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
+            Contact
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Let&apos;s work together
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            I&apos;m always interested in hearing about new opportunities, collaborations, or just having a
-            chat about technology. Drop me a message and I&apos;ll get back to you as soon as possible.
+            I&apos;m always interested in hearing about new opportunities,
+            collaborations, or just having a chat about technology. Drop me a
+            message and I&apos;ll get back to you as soon as possible.
           </p>
         </motion.div>
 
@@ -773,20 +893,31 @@ function ContactSection() {
                       <label htmlFor="name" className="text-sm font-medium">
                         Name
                       </label>
-                      <Input id="name" placeholder="Your name" required />
+                      <Input id="name" name="name" placeholder="Your name" required />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
                         Email
                       </label>
-                      <Input id="email" type="email" placeholder="you@example.com" required />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        required
+                      />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium">
                       Subject
                     </label>
-                    <Input id="subject" placeholder="What's this about?" required />
+                    <Input
+                      id="subject"
+                      name="subject"
+                      placeholder="What's this about?"
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
@@ -794,6 +925,7 @@ function ContactSection() {
                     </label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Tell me about your project or opportunity..."
                       rows={5}
                       required
@@ -814,12 +946,15 @@ function ContactSection() {
             </Card>
           </motion.div>
 
+          {/* Keep your existing right side unchanged */}
           <motion.div variants={fadeUp} className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4">Get in touch directly</h3>
+              <h3 className="text-lg font-semibold mb-4">
+                Get in touch directly
+              </h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:alex@example.com"
+                  href="mailto:sophatroeun148@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 transition-colors dark:bg-emerald-950 dark:group-hover:bg-emerald-900">
@@ -827,11 +962,11 @@ function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
-                    <p className="text-sm">alex@example.com</p>
+                    <p className="text-sm">sophatroeun148@gmail.com</p>
                   </div>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/SopattRouen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
@@ -840,12 +975,14 @@ function ContactSection() {
                     <Github className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">GitHub</p>
-                    <p className="text-sm">github.com/alexchen</p>
+                    <p className="text-sm font-medium text-foreground">
+                      GitHub
+                    </p>
+                    <p className="text-sm">github.com/SopattRouen</p>
                   </div>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/sophat-roeun-289788336"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
@@ -854,8 +991,10 @@ function ContactSection() {
                     <Linkedin className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">LinkedIn</p>
-                    <p className="text-sm">linkedin.com/in/alexchen</p>
+                    <p className="text-sm font-medium text-foreground">
+                      LinkedIn
+                    </p>
+                    <p className="text-sm">linkedin.com/in/sophat-roeun</p>
                   </div>
                 </a>
               </div>
@@ -871,8 +1010,10 @@ function ContactSection() {
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  I&apos;m particularly interested in roles involving system design, developer tools, and
-                  high-performance web applications. Remote-friendly preferred but open to hybrid in SF Bay Area.
+                  I&apos;m particularly interested in roles involving system
+                  design, developer tools, and high-performance web
+                  applications. Remote-friendly preferred but open to hybrid in
+                  SF Bay Area.
                 </p>
               </CardContent>
             </Card>
@@ -889,22 +1030,34 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">&lt;Alex.dev/&gt;</span>{" "}
+            <span className="font-medium text-foreground">
+              &lt;Phat.dev/&gt;
+            </span>{" "}
             &copy; {new Date().getFullYear()}
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a
+                href="https://github.com/SopattRouen"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <Github className="h-4 w-4" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/sophat-roeun-289788336"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="h-4 w-4" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href="mailto:alex@example.com" aria-label="Email">
+              <a href="mailto:sophatroeun148@gmail.com" aria-label="Email">
                 <Mail className="h-4 w-4" />
               </a>
             </Button>
@@ -953,7 +1106,7 @@ export default function Home() {
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <ContactSection />
       </main>
       <Footer />

@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Chen — Full-Stack Engineer",
-  description: "Full-stack engineer crafting performant, elegant digital experiences. 7+ years building web applications with React, TypeScript, Node.js, and more.",
-  keywords: ["Full-Stack Engineer", "Web Developer", "React", "TypeScript", "Next.js", "Node.js", "Portfolio"],
-  authors: [{ name: "Alex Chen" }],
-  icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+  title: "SOPHAT ROEUN — Full-Stack Developer",
+  description: "Full-stack engineer crafting performant, elegant digital experiences. 2+ years building web&mobile applications with Vue, Flutter, TypeScript, and more.",
+  keywords: ["Full-Stack Developer", "Web Developer","Mobile Application Developer", "Vue", "TypeScript", "Next.js", "Portfolio"],
+  authors: [{ name: "SOPHAT ROEUN" }],
+ icons: {
+    icon: "/logo-fsd.png",
   },
   openGraph: {
-    title: "Alex Chen — Full-Stack Engineer",
+    title: "SOPHAT ROEUN — Full-Stack Developer",
     description: "Full-stack engineer crafting performant, elegant digital experiences.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Chen — Full-Stack Engineer",
+    title: "SOPHAT ROEUN — Full-Stack Developer",
     description: "Full-stack engineer crafting performant, elegant digital experiences.",
   },
 };
