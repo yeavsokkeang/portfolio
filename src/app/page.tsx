@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { Space_Grotesk } from "next/font/google";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   ArrowDown,
@@ -34,6 +35,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+/* ─────────────────────────── Type system ─────────────────────────── */
+/* One display face for headings, system sans for body. Swap the weight
+   list if you don't need all three. */
+const heading = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 /* ────────────────────────────── Data ────────────────────────────── */
 
 const NAV_ITEMS = [
@@ -41,7 +50,6 @@ const NAV_ITEMS = [
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -84,6 +92,13 @@ const SKILL_CATEGORIES = [
   "DevOps",
 ];
 
+const STATS = [
+  { label: "Years experience", value: "2+" },
+  { label: "Projects shipped", value: "4+" },
+  { label: "Open source contrib.", value: "120+" },
+  { label: "GitHub stars", value: "1K" },
+];
+
 const EXPERIENCES = [
   {
     title: "Full-Stack Developer",
@@ -103,23 +118,15 @@ const EXPERIENCES = [
   },
 ];
 
-const EDUCATION = [
-  {
-    degree: "Bachelor's Degree in Information Technology",
-    institution: "Royal University of Phnom Penh (RUPP)",
-    period: "2020 — 2024",
-    description:
-      "Studied software development, database systems, networking, and software engineering principles while building practical projects and strengthening problem-solving skills.",
-  },
-];
-
 const PROJECTS = [
   {
     title: "HRM (Human Resource Management)",
     description:
       "A comprehensive Human Resource Management system designed to streamline employee management, attendance tracking, leave requests, payroll processing, and organizational workflows. Contributed to both frontend and backend development while ensuring a smooth user experience and scalable architecture.",
     tech: ["Laravel", "Vue.js", "MySQL", "REST API"],
-    image: "hrm",
+    icon: Briefcase,
+    accent: "cyan",
+    image: "/projects/hrm.png",
     link: "#",
     github: "#",
   },
@@ -128,7 +135,9 @@ const PROJECTS = [
     description:
       "A cross-platform mobile application developed to provide users with seamless access to digital services and real-time information. Focused on performance optimization, responsive UI implementation, and API integration for a reliable mobile experience.",
     tech: ["Flutter", "Laravel", "REST API"],
-    image: "mobile",
+    icon: Smartphone,
+    accent: "violet",
+    image: "/projects/ccn-mobile.png",
     link: "#",
     github: "#",
   },
@@ -137,7 +146,9 @@ const PROJECTS = [
     description:
       "A Point of Sale system built to help businesses manage sales transactions, inventory, customer records, and reporting. Developed key modules for transaction processing, inventory management, and dashboard analytics to improve business operations.",
     tech: ["Laravel", "Vue.js", "MySQL"],
-    image: "pos",
+    icon: Database,
+    accent: "amber",
+    image: "/projects/pintel.png",
     link: "#",
     github: "#",
   },
@@ -146,32 +157,62 @@ const PROJECTS = [
     description:
       "A mobile news application that delivers the latest articles and updates through an intuitive and user-friendly interface. Implemented content management integration, category filtering, push notifications, and responsive mobile experiences.",
     tech: ["Flutter", "Laravel", "API Integration"],
-    image: "news",
+    icon: Globe,
+    accent: "rose",
+    image: "/projects/news-mobile.png",
     link: "#",
     github: "#",
   },
 ];
 
+const ACCENT_STYLES: Record<
+  string,
+  { tile: string; icon: string; ring: string }
+> = {
+  cyan: {
+    tile: "from-cyan-500/10 to-blue-500/10",
+    icon: "bg-cyan-600",
+    ring: "group-hover:border-cyan-300",
+  },
+  violet: {
+    tile: "from-violet-500/10 to-purple-500/10",
+    icon: "bg-violet-600",
+    ring: "group-hover:border-violet-300",
+  },
+  amber: {
+    tile: "from-amber-500/10 to-orange-500/10",
+    icon: "bg-amber-600",
+    ring: "group-hover:border-amber-300",
+  },
+  rose: {
+    tile: "from-rose-500/10 to-pink-500/10",
+    icon: "bg-rose-600",
+    ring: "group-hover:border-rose-300",
+  },
+};
+
+/* Kept for later use — re-enable the <TestimonialsSection /> in Home()
+   and add "Testimonials" back into NAV_ITEMS if you want this live. */
 const TESTIMONIALS = [
   {
     name: "Sarah Chen",
     role: "CTO, TechForward Inc.",
     content:
-      "An exceptional engineer who consistently delivers beyond expectations. Their architectural decisions transformed our platform's performance, and their mentorship elevated our entire team's output. A rare combination of deep technical skill and clear communication.",
+      "An exceptional engineer who consistently delivers beyond expectations. Their architectural decisions transformed our platform's performance, and their mentorship elevated our entire team's output.",
     avatar: "SC",
   },
   {
     name: "Marcus Rivera",
     role: "Product Lead, DataVista Labs",
     content:
-      "One of the most reliable developers I've worked with. They have an incredible ability to translate complex business requirements into elegant, maintainable code. Our real-time dashboards wouldn't be where they are without their expertise.",
+      "One of the most reliable developers I've worked with. They have an incredible ability to translate complex business requirements into elegant, maintainable code.",
     avatar: "MR",
   },
   {
     name: "Emily Nakamura",
     role: "Design Director, CreativePixel",
     content:
-      "A developer who truly understands design intent. Every pixel-perfect implementation they delivered matched our Figma specs flawlessly, and they proactively suggested UX improvements that our design team hadn't even considered.",
+      "A developer who truly understands design intent. Every pixel-perfect implementation matched our specs flawlessly, and they proactively suggested UX improvements.",
     avatar: "EN",
   },
 ];
@@ -179,12 +220,12 @@ const TESTIMONIALS = [
 /* ──────────────────────── Animation helpers ──────────────────────── */
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 function Section({
@@ -209,6 +250,17 @@ function Section({
     >
       {children}
     </motion.section>
+  );
+}
+
+/* Small structural marker used above each section heading — a rule and
+   a label, standing in for a numbered step only where content is one. */
+function Eyebrow({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-2 mb-3">
+      <span className="h-px w-8 bg-cyan-600" aria-hidden="true" />
+      <span className="text-sm font-medium text-cyan-700">{label}</span>
+    </div>
   );
 }
 
@@ -244,11 +296,11 @@ function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-lg font-bold tracking-tight hover:opacity-70 transition-opacity"
+          className={`${heading.className} text-lg font-semibold tracking-tight hover:opacity-70 transition-opacity`}
         >
-          <span className="text-primary">&lt;</span>
+          <span className="text-cyan-600">&lt;</span>
           Phat.dev
-          <span className="text-primary">/&gt;</span>
+          <span className="text-cyan-600">/&gt;</span>
         </button>
 
         {/* Desktop nav */}
@@ -308,6 +360,21 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]" />
 
       <div className="relative max-w-4xl mx-auto text-center">
+        {/* Profile photo — replace /profile.jpg in /public with your own headshot */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-6 flex justify-center"
+        >
+          <Avatar className="h-70 w-70 ring-4 ring-cyan-100 dark:ring-cyan-950 shadow-sm">
+            <AvatarImage src="/profile.jpg" alt="Sophat Roeun" />
+            <AvatarFallback className="bg-cyan-600 text-white text-xl font-semibold">
+              SR
+            </AvatarFallback>
+          </Avatar>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -317,7 +384,7 @@ function HeroSection() {
             variant="secondary"
             className="mb-6 px-4 py-1.5 text-sm font-medium"
           >
-            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
             Available for opportunities
           </Badge>
         </motion.div>
@@ -326,11 +393,11 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6"
+          className={`${heading.className} text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight mb-6`}
         >
           Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
-            SOPHAT ROEUN
+          <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+            Sophat Roeun
           </span>
         </motion.h1>
 
@@ -350,7 +417,7 @@ function HeroSection() {
           className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8"
         >
           <MapPin size={14} />
-          <span>Phnom Penh,Cambodia</span>
+          <span>Phnom Penh, Cambodia</span>
         </motion.div>
 
         <motion.div
@@ -443,10 +510,8 @@ function AboutSection() {
     <Section id="about">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            About
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="About" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             A bit about me
           </h2>
         </motion.div>
@@ -454,63 +519,62 @@ function AboutSection() {
         <div className="grid md:grid-cols-3 gap-12 items-start">
           <motion.div variants={fadeUp} className="md:col-span-2 space-y-5">
             <p className="text-muted-foreground leading-relaxed text-lg">
-              I’m a Full-Stack Developer with 2+ years of professional
-              experience building modern web and mobile applications. Currently,
-              I work as a Full-Stack Developer, transforming ideas into
-              scalable, user-friendly solutions using Laravel, Vue.js, Next.js,
-              and Flutter. I enjoy creating applications that are not only
-              functional but also deliver a seamless experience for users.
+              I&apos;m a Full-Stack Developer with 2+ years of professional
+              experience building modern web and mobile applications.
+              Currently, I work as a Full-Stack Developer, transforming ideas
+              into scalable, user-friendly solutions using Laravel, Vue.js,
+              Next.js, and Flutter. I enjoy creating applications that are not
+              only functional but also deliver a seamless experience for
+              users.
             </p>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
               My experience covers both frontend and backend development,
-              allowing me to build complete products from concept to deployment.
-              Whether it’s developing secure APIs with Laravel, crafting
-              responsive interfaces with Vue.js and Next.js, or building
-              cross-platform mobile applications with Flutter, I focus on
-              writing clean, maintainable, and high-performance code that solves
-              real-world problems.
+              allowing me to build complete products from concept to
+              deployment. Whether it&apos;s developing secure APIs with
+              Laravel, crafting responsive interfaces with Vue.js and Next.js,
+              or building cross-platform mobile applications with Flutter, I
+              focus on writing clean, maintainable, and high-performance code
+              that solves real-world problems.
             </p>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Currently, I am managing and contributing to four active projects,
-              which has strengthened my ability to handle complex requirements,
-              collaborate effectively, and deliver quality solutions on time.
-              I’m passionate about continuous learning, exploring emerging
-              technologies, and improving my skills to build better software and
-              create meaningful digital experiences.
+              Currently, I am managing and contributing to four active
+              projects, which has strengthened my ability to handle complex
+              requirements, collaborate effectively, and deliver quality
+              solutions on time. I&apos;m passionate about continuous
+              learning, exploring emerging technologies, and improving my
+              skills to build better software and create meaningful digital
+              experiences.
             </p>
-          </motion.div>
 
-          <motion.div variants={fadeUp} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Years Experience", value: "2+" },
-                { label: "Projects Shipped", value: "4+" },
-                { label: "Open Source Contrib", value: "120+" },
-                { label: "GitHub Stars", value: "1K" },
-              ].map((stat) => (
-                <Card key={stat.label} className="text-center">
-                  <CardContent className="pt-6">
-                    <p className="text-2xl font-bold text-emerald-600">
-                      {stat.value}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {stat.label}
-                    </p>
-                  </CardContent>
-                </Card>
+            {/* Stats — a plain row instead of a grid of boxed cards */}
+            <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4">
+              {STATS.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className={i > 0 ? "pl-8 border-l border-border" : ""}
+                >
+                  <p className={`${heading.className} text-2xl font-semibold text-cyan-700`}>
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {stat.label}
+                  </p>
+                </div>
               ))}
             </div>
+          </motion.div>
 
+          <motion.div variants={fadeUp}>
             <Card>
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <Terminal className="h-5 w-5 text-emerald-600" />
-                  <span className="text-sm font-medium">Quick Facts</span>
+                  <Terminal className="h-5 w-5 text-cyan-600" />
+                  <span className="text-sm font-medium">Quick facts</span>
                 </div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Based in Phnom Penh,Cambodia</li>
+                  <li>Based in Phnom Penh, Cambodia</li>
                   <li>Open to remote & hybrid roles</li>
                   <li>Conference speaker (3 events)</li>
                   <li>Open-source maintainer</li>
@@ -534,10 +598,8 @@ function SkillsSection() {
     <Section id="skills" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            Skills
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="Skills" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             Technologies I work with
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
@@ -575,9 +637,9 @@ function SkillsSection() {
             const Icon = skill.icon;
             return (
               <motion.div key={skill.name} variants={fadeUp}>
-                <Card className="group hover:border-emerald-300 hover:shadow-sm transition-all duration-200 cursor-default">
+                <Card className="group hover:border-cyan-300 transition-colors duration-200 cursor-default">
                   <CardContent className="flex items-center gap-3 pt-4 pb-4 px-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 transition-colors dark:bg-emerald-950 dark:group-hover:bg-emerald-900">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition-colors dark:bg-cyan-950 dark:group-hover:bg-cyan-900">
                       <Icon className="h-4 w-4" />
                     </div>
                     <div className="min-w-0">
@@ -604,10 +666,8 @@ function ExperienceSection() {
     <Section id="experience">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            Experience
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="Experience" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             Where I&apos;ve worked
           </h2>
         </motion.div>
@@ -623,11 +683,14 @@ function ExperienceSection() {
                 variants={fadeUp}
                 className="relative pl-12 md:pl-20"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-2.5 md:left-6.5 top-1.5 h-3 w-3 rounded-full border-2 border-emerald-500 bg-background" />
+                {/* Timeline dot — centered on the line above via an arbitrary
+                    offset (Tailwind's default spacing scale has no 6.5 step) */}
+                <div className="absolute left-2.5 md:left-[26px] top-1.5 h-3 w-3 rounded-full border-2 border-cyan-500 bg-background" />
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-3">
-                  <h3 className="text-lg font-semibold">{exp.title}</h3>
+                  <h3 className={`${heading.className} text-lg font-semibold`}>
+                    {exp.title}
+                  </h3>
                   <span className="text-sm text-muted-foreground">
                     @ {exp.company}
                   </span>
@@ -662,14 +725,16 @@ function ExperienceSection() {
 
         {/* Education */}
         <motion.div variants={fadeUp} className="mt-16 pl-12 md:pl-20 relative">
-          <div className="absolute left-2.5 md:left-6.5 top-1.5 h-3 w-3 rounded-full border-2 border-emerald-500 bg-background" />
+          <div className="absolute left-2.5 md:left-[26px] top-1.5 h-3 w-3 rounded-full border-2 border-cyan-500 bg-background" />
           <div className="flex items-center gap-2 mb-2">
-            <GraduationCap className="h-5 w-5 text-emerald-600" />
-            <h3 className="text-lg font-semibold">Education</h3>
+            <GraduationCap className="h-5 w-5 text-cyan-600" />
+            <h3 className={`${heading.className} text-lg font-semibold`}>
+              Education
+            </h3>
           </div>
 
           <h4 className="font-medium">
-            Bachelor's Degree in Information Technology
+            Bachelor&apos;s Degree in Information Technology
           </h4>
 
           <p className="text-muted-foreground">
@@ -688,98 +753,90 @@ function ExperienceSection() {
 }
 
 function ProjectsSection() {
-  const PROJECT_COLORS = [
-    "from-emerald-500/10 to-teal-500/10",
-    "from-violet-500/10 to-purple-500/10",
-    "from-amber-500/10 to-orange-500/10",
-    "from-rose-500/10 to-pink-500/10",
-  ];
-
-  const PROJECT_ACCENTS = [
-    "bg-emerald-500",
-    "bg-violet-500",
-    "bg-amber-500",
-    "bg-rose-500",
-  ];
-
   return (
     <Section id="projects" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            Projects
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="Projects" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             Selected work
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            A curated selection of projects that showcase my approach to solving
-            complex problems with clean, thoughtful engineering.
+            A curated selection of projects that showcase my approach to
+            solving complex problems with clean, thoughtful engineering.
           </p>
         </motion.div>
 
         <motion.div variants={stagger} className="grid md:grid-cols-2 gap-6">
-          {PROJECTS.map((project, i) => (
-            <motion.div key={project.title} variants={fadeUp}>
-              <Card className="group overflow-hidden hover:shadow-md transition-all duration-300 h-full">
-                {/* Project image placeholder */}
-                <div
-                  className={`h-48 bg-gradient-to-br ${PROJECT_COLORS[i]} flex items-center justify-center relative overflow-hidden`}
+          {PROJECTS.map((project) => {
+            const Icon = project.icon;
+            const accent = ACCENT_STYLES[project.accent];
+            return (
+              <motion.div key={project.title} variants={fadeUp}>
+                <Card
+                  className={`group overflow-hidden border transition-colors duration-200 h-full ${accent.ring}`}
                 >
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px]" />
+                  {/* Project image — swap this block for a real screenshot:
+                      <img src={project.image} alt={project.title} className="h-48 w-full object-cover" /> */}
                   <div
-                    className={`w-12 h-12 rounded-xl ${PROJECT_ACCENTS[i]} flex items-center justify-center shadow-lg`}
+                    className={`h-48 bg-gradient-to-br ${accent.tile} flex items-center justify-center`}
                   >
-                    <Code2 className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-
-                <CardContent className="pt-6">
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-lg font-semibold">{project.title}</h3>
-                    <div className="flex gap-2 shrink-0">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        asChild
-                      >
-                        <a href={project.github} aria-label="View source">
-                          <Github className="h-4 w-4" />
-                        </a>
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        asChild
-                      >
-                        <a href={project.link} aria-label="View live">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
+                    <div
+                      className={`w-12 h-12 rounded-xl ${accent.icon} flex items-center justify-center shadow-sm`}
+                    >
+                      <Icon className="h-6 w-6 text-white" />
                     </div>
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {project.description}
-                  </p>
+                  <CardContent className="pt-6">
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className={`${heading.className} text-lg font-semibold`}>
+                        {project.title}
+                      </h3>
+                      <div className="flex gap-2 shrink-0">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8"
+                          asChild
+                        >
+                          <a href={project.github} aria-label="View source">
+                            <Github className="h-4 w-4" />
+                          </a>
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8"
+                          asChild
+                        >
+                          <a href={project.link} aria-label="View live">
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
 
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tech.map((t) => (
-                      <Badge
-                        key={t}
-                        variant="outline"
-                        className="text-xs font-normal"
-                      >
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.map((t) => (
+                        <Badge
+                          key={t}
+                          variant="outline"
+                          className="text-xs font-normal"
+                        >
+                          {t}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </Section>
@@ -791,22 +848,20 @@ function TestimonialsSection() {
     <Section id="testimonials">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            Testimonials
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="Testimonials" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             What people say
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            Kind words from colleagues and clients I&apos;ve had the pleasure of
-            working with over the years.
+            Kind words from colleagues and clients I&apos;ve had the pleasure
+            of working with over the years.
           </p>
         </motion.div>
 
         <motion.div variants={stagger} className="grid md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((testimonial) => (
             <motion.div key={testimonial.name} variants={fadeUp}>
-              <Card className="h-full hover:shadow-sm transition-shadow duration-200">
+              <Card className="h-full">
                 <CardContent className="pt-6">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
@@ -822,7 +877,7 @@ function TestimonialsSection() {
                   <Separator className="mb-4" />
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-emerald-100 text-emerald-700 text-sm font-medium dark:bg-emerald-900 dark:text-emerald-300">
+                      <AvatarFallback className="bg-cyan-100 text-cyan-700 text-sm font-medium dark:bg-cyan-900 dark:text-cyan-300">
                         {testimonial.avatar}
                       </AvatarFallback>
                     </Avatar>
@@ -870,10 +925,8 @@ function ContactSection() {
     <Section id="contact" className="bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
-          <p className="text-sm font-medium text-emerald-600 mb-2 tracking-wider uppercase">
-            Contact
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <Eyebrow label="Contact" />
+          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
             Let&apos;s work together
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
@@ -946,10 +999,9 @@ function ContactSection() {
             </Card>
           </motion.div>
 
-          {/* Keep your existing right side unchanged */}
           <motion.div variants={fadeUp} className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-4">
+              <h3 className={`${heading.className} text-lg font-semibold mb-4`}>
                 Get in touch directly
               </h3>
               <div className="space-y-4">
@@ -957,7 +1009,7 @@ function ContactSection() {
                   href="mailto:sophatroeun148@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 transition-colors dark:bg-emerald-950 dark:group-hover:bg-emerald-900">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition-colors dark:bg-cyan-950 dark:group-hover:bg-cyan-900">
                     <Mail className="h-4 w-4" />
                   </div>
                   <div>
@@ -971,7 +1023,7 @@ function ContactSection() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 transition-colors dark:bg-emerald-950 dark:group-hover:bg-emerald-900">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition-colors dark:bg-cyan-950 dark:group-hover:bg-cyan-900">
                     <Github className="h-4 w-4" />
                   </div>
                   <div>
@@ -987,7 +1039,7 @@ function ContactSection() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 transition-colors dark:bg-emerald-950 dark:group-hover:bg-emerald-900">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition-colors dark:bg-cyan-950 dark:group-hover:bg-cyan-900">
                     <Linkedin className="h-4 w-4" />
                   </div>
                   <div>
@@ -1004,7 +1056,7 @@ function ContactSection() {
               <CardContent className="pt-6">
                 <h4 className="text-sm font-semibold mb-2">Current Status</h4>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-cyan-500 animate-pulse" />
                   <span className="text-sm text-muted-foreground">
                     Open to full-time & contract roles
                   </span>
@@ -1012,8 +1064,8 @@ function ContactSection() {
                 <p className="text-xs text-muted-foreground">
                   I&apos;m particularly interested in roles involving system
                   design, developer tools, and high-performance web
-                  applications. Remote-friendly preferred but open to hybrid in
-                  SF Bay Area.
+                  applications. Remote-friendly preferred, and open to hybrid
+                  roles based in Phnom Penh.
                 </p>
               </CardContent>
             </Card>
@@ -1030,7 +1082,7 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">
+            <span className={`${heading.className} font-medium text-foreground`}>
               &lt;Phat.dev/&gt;
             </span>{" "}
             &copy; {new Date().getFullYear()}
@@ -1084,7 +1136,7 @@ function ScrollToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-40 h-10 w-10 rounded-full bg-emerald-600 text-white shadow-lg flex items-center justify-center hover:bg-emerald-700 transition-colors"
+          className="fixed bottom-6 right-6 z-40 h-10 w-10 rounded-full bg-cyan-600 text-white shadow-lg flex items-center justify-center hover:bg-cyan-700 transition-colors"
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-5 w-5" />
