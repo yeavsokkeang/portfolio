@@ -14,22 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SOPHAT ROEUN — Full-Stack Developer",
-  description: "Full-stack engineer crafting performant, elegant digital experiences. 2+ years building web&mobile applications with Vue, Flutter, TypeScript, and more.",
-  keywords: ["Full-Stack Developer", "Web Developer","Mobile Application Developer", "Vue", "TypeScript", "Next.js", "Portfolio"],
-  authors: [{ name: "SOPHAT ROEUN" }],
- icons: {
+  title: "YEAV SOKKEANG — Full-Stack Developer",
+  description:
+    "Full-stack engineer crafting performant, elegant digital experiences. 2+ years building web&mobile applications with Vue, Flutter, TypeScript, and more.",
+  keywords: [
+    "Full-Stack Developer",
+    "Web Developer",
+    // "Mobile Application Developer",
+    "Vue",
+    "TypeScript",
+    "Next.js",
+    "Portfolio",
+  ],
+  authors: [{ name: "YEAV SOKKEANG" }],
+  icons: {
     icon: "/logo-fsd.png",
   },
   openGraph: {
-    title: "SOPHAT ROEUN — Full-Stack Developer",
-    description: "Full-stack engineer crafting performant, elegant digital experiences.",
+    title: "YEAV SOKKEANG — Full-Stack Developer",
+    description:
+      "Full-stack engineer crafting performant, elegant digital experiences.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SOPHAT ROEUN — Full-Stack Developer",
-    description: "Full-stack engineer crafting performant, elegant digital experiences.",
+    title: "YEAV SOKKEANG — Full-Stack Developer",
+    description:
+      "Full-stack engineer crafting performant, elegant digital experiences.",
   },
 };
 

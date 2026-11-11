@@ -58,7 +58,7 @@ const SKILLS = [
   { name: "PHP", icon: Code2, category: "Languages" },
   { name: "JavaScript", icon: Code2, category: "Languages" },
   { name: "TypeScript", icon: Code2, category: "Languages" },
-  { name: "Dart", icon: Code2, category: "Languages" },
+  // { name: "Dart", icon: Code2, category: "Languages" },
 
   // Frontend
   { name: "Vue.js", icon: Globe, category: "Frontend" },
@@ -70,98 +70,96 @@ const SKILLS = [
 
   // Backend
   { name: "Laravel", icon: Server, category: "Backend" },
-  { name: "REST API", icon: Server, category: "Backend" },
+  // { name: "REST API", icon: Server, category: "Backend" },
   { name: "MySQL", icon: Database, category: "Backend" },
   { name: "PostgreSQL", icon: Database, category: "Backend" },
 
   // Mobile
-  { name: "Flutter", icon: Smartphone, category: "Mobile" },
+  // { name: "Flutter", icon: Smartphone, category: "Mobile" },
 
   // Tools & DevOps
   { name: "Git", icon: GitBranch, category: "DevOps" },
   { name: "Docker", icon: Server, category: "DevOps" },
   { name: "Linux", icon: Layers, category: "DevOps" },
-  { name: "CI/CD", icon: GitBranch, category: "DevOps" },
+  // { name: "CI/CD", icon: GitBranch, category: "DevOps" },
 ];
 
-const SKILL_CATEGORIES = [
-  "Languages",
-  "Frontend",
-  "Backend",
-  "Mobile",
-  "DevOps",
-];
+const SKILL_CATEGORIES = ["Languages", "Frontend", "Backend", "DevOps"];
 
 const STATS = [
-  { label: "Years experience", value: "2+" },
-  { label: "Projects shipped", value: "4+" },
-  { label: "Open source contrib.", value: "120+" },
-  { label: "GitHub stars", value: "1K" },
+  { label: "IT Support Experience", value: "1+" },
+  { label: "Projects Developed", value: "4+" },
 ];
 
 const EXPERIENCES = [
   {
-    title: "Full-Stack Developer",
-    company: "Calmette Hospital",
-    period: "2026 — Present",
+    title: "Administrative Staff",
+    company: "Current Organization",
+    period: "Present",
     description:
-      "Working as a Full-Stack Developer responsible for developing and maintaining internal healthcare management systems and web applications. Building scalable solutions using Laravel, Vue.js, Next.js, and Flutter while collaborating with cross-functional teams to improve operational efficiency and user experience.",
-    tech: ["Laravel", "Vue.js", "Next.js", "Flutter", "MySQL"],
+      "Currently handling administrative responsibilities, coordinating daily operations, managing documentation, and supporting organizational activities while continuing to develop technical and programming skills.",
+    tech: ["Administration", "Documentation", "Communication"],
   },
   {
-    title: "Full-Stack Developer",
-    company: "CamCyber Digital Tech Team",
-    period: "2024 — 2026",
+    title: "Assistant IT Support",
+    company: "National Employment Agency",
+    period: "2024 — 2025",
     description:
-      "Developed and maintained multiple web and mobile applications for government and enterprise projects. Contributed to both frontend and backend development, designed RESTful APIs, optimized database performance, and delivered production-ready solutions using modern development practices.",
-    tech: ["Laravel", "Vue.js", "Next.js", "Flutter", "PostgreSQL"],
+      "Provided technical support and assisted with daily IT operations, troubleshooting hardware and software issues, maintaining computer systems, and helping staff resolve technical problems.",
+    tech: [
+      "IT Support",
+      "Troubleshooting",
+      "Hardware",
+      "Software",
+      "Networking",
+    ],
   },
 ];
 
 const PROJECTS = [
   {
-    title: "HRM (Human Resource Management)",
+    title: "Payroll Management System",
     description:
-      "A comprehensive Human Resource Management system designed to streamline employee management, attendance tracking, leave requests, payroll processing, and organizational workflows. Contributed to both frontend and backend development while ensuring a smooth user experience and scalable architecture.",
-    tech: ["Laravel", "Vue.js", "MySQL", "REST API"],
+      "A payroll management project focused on organizing employee payroll operations and salary-related workflows. Developed to improve the management of payroll information through a structured system.",
+    tech: ["To be confirmed"],
     icon: Briefcase,
     accent: "cyan",
-    image: "/projects/hrm.png",
-    link: "#",
-    github: "#",
+    image: "/projects/payroll.png",
+    link: "https://github.com/yeavsokkeang/HRM-project/tree/main/Payroll",
+    github: "https://github.com/yeavsokkeang/HRM-project",
   },
   {
-    title: "CCN Mobile",
+    title: "Coffee Shop POS Management System",
     description:
-      "A cross-platform mobile application developed to provide users with seamless access to digital services and real-time information. Focused on performance optimization, responsive UI implementation, and API integration for a reliable mobile experience.",
-    tech: ["Flutter", "Laravel", "REST API"],
-    icon: Smartphone,
-    accent: "violet",
-    image: "/projects/ccn-mobile.png",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Pintel (POS System)",
-    description:
-      "A Point of Sale system built to help businesses manage sales transactions, inventory, customer records, and reporting. Developed key modules for transaction processing, inventory management, and dashboard analytics to improve business operations.",
-    tech: ["Laravel", "Vue.js", "MySQL"],
+      "A point-of-sale management system designed to handle product management, customer orders, inventory tracking, billing, and sales reporting. Focused on building backend functionality, database relationships, and efficient business workflows.",
+    tech: ["PHP", "Laravel", "MySQL", "Docker"],
     icon: Database,
     accent: "amber",
-    image: "/projects/pintel.png",
+    image: "/projects/coffee-pos.png",
     link: "#",
     github: "#",
   },
   {
-    title: "News Mobile",
+    title: "Backend Express.js REST API",
     description:
-      "A mobile news application that delivers the latest articles and updates through an intuitive and user-friendly interface. Implemented content management integration, category filtering, push notifications, and responsive mobile experiences.",
-    tech: ["Flutter", "Laravel", "API Integration"],
-    icon: Globe,
-    accent: "rose",
-    image: "/projects/news-mobile.png",
+      "A backend API project built with Express.js and Sequelize ORM. Implements CRUD operations, database migrations, and product management endpoints while practicing REST API development and database integration.",
+    tech: ["Node.js", "Express.js", "Sequelize", "MySQL"],
+    icon: Database,
+    accent: "amber",
+    image: "/projects/express-api.png",
     link: "#",
-    github: "#",
+    github: "https://github.com/yeavsokkeang/Backend-ExpressJs",
+  },
+  {
+    title: "React.js & Flowbite UI",
+    description:
+      "A frontend development project using React.js, Tailwind CSS, and Flowbite components. Includes reusable UI components, navigation, course listings, and API integration using React Query.",
+    tech: ["React.js", "JavaScript", "Tailwind CSS", "Flowbite"],
+    icon: Globe,
+    accent: "violet",
+    image: "/projects/react-flowbite.png",
+    link: "#",
+    github: "https://github.com/yeavsokkeang/reactjs-flowbite",
   },
 ];
 
@@ -367,10 +365,10 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-6 flex justify-center"
         >
-          <Avatar className="h-70 w-70 ring-4 ring-cyan-100 dark:ring-cyan-950 shadow-sm">
-            <AvatarImage src="/profile.jpg" alt="Sophat Roeun" />
+          <Avatar className="h-32 w-32 md:h-40 md:w-40 ring-4 ring-cyan-100 dark:ring-cyan-950 shadow-sm">
+            <AvatarImage src="/profile.jpg" alt="Yeav Sokkeang" />
             <AvatarFallback className="bg-cyan-600 text-white text-xl font-semibold">
-              SR
+              YS
             </AvatarFallback>
           </Avatar>
         </motion.div>
@@ -397,7 +395,7 @@ function HeroSection() {
         >
           Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-            Sophat Roeun
+            Yeav Sokkeang
           </span>
         </motion.h1>
 
@@ -407,7 +405,8 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
         >
-          Full-Stack Engineer crafting performant, elegant digital experiences.
+          Full-Stack Developer building web and mobile applications with
+          Laravel, Vue.js, Next.js.
         </motion.p>
 
         <motion.div
@@ -461,7 +460,7 @@ function HeroSection() {
         >
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/SopattRouen"
+              href="https://github.com/yeavsokkeang"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -471,7 +470,7 @@ function HeroSection() {
           </Button>
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://www.linkedin.com/in/sophat-roeun-289788336"
+              href="https://www.linkedin.com/in/yeavsokkeang/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -480,7 +479,7 @@ function HeroSection() {
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <a href="mailto:sophatroeun148@gmail.com" aria-label="Email">
+            <a href="mailto:sokkeang314@gmail.com" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>
@@ -511,7 +510,9 @@ function AboutSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="About" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             A bit about me
           </h2>
         </motion.div>
@@ -519,33 +520,23 @@ function AboutSection() {
         <div className="grid md:grid-cols-3 gap-12 items-start">
           <motion.div variants={fadeUp} className="md:col-span-2 space-y-5">
             <p className="text-muted-foreground leading-relaxed text-lg">
-              I&apos;m a Full-Stack Developer with 2+ years of professional
-              experience building modern web and mobile applications.
-              Currently, I work as a Full-Stack Developer, transforming ideas
-              into scalable, user-friendly solutions using Laravel, Vue.js,
-              Next.js, and Flutter. I enjoy creating applications that are not
-              only functional but also deliver a seamless experience for
-              users.
+              I&apos;m a I'm a Phnom Penh-based aspiring Software Developer with
+              a background in IT Support and a strong interest in building
+              practical web applications. I previously worked as an Assistant IT
+              Support, where I developed problem-solving, technical support, and
+              communication skills. Currently, I work in administration while
+              continuing to strengthen my programming skills and pursue my goal
+              of becoming a professional Software Developer.
             </p>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              My experience covers both frontend and backend development,
-              allowing me to build complete products from concept to
-              deployment. Whether it&apos;s developing secure APIs with
-              Laravel, crafting responsive interfaces with Vue.js and Next.js,
-              or building cross-platform mobile applications with Flutter, I
-              focus on writing clean, maintainable, and high-performance code
-              that solves real-world problems.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              Currently, I am managing and contributing to four active
-              projects, which has strengthened my ability to handle complex
-              requirements, collaborate effectively, and deliver quality
-              solutions on time. I&apos;m passionate about continuous
-              learning, exploring emerging technologies, and improving my
-              skills to build better software and create meaningful digital
-              experiences.
+              I enjoy building web applications, developing backend APIs,
+              working with databases, and exploring modern web technologies. I'm
+              currently focusing on improving my frontend development skills
+              with React.js, Next.js, and Vue.js, while also strengthening my
+              backend development knowledge with PHP, Laravel, and Express.js. I
+              value continuous learning, writing clean and maintainable code,
+              teamwork, and creating practical solutions to real-world problems.
             </p>
 
             {/* Stats — a plain row instead of a grid of boxed cards */}
@@ -555,7 +546,9 @@ function AboutSection() {
                   key={stat.label}
                   className={i > 0 ? "pl-8 border-l border-border" : ""}
                 >
-                  <p className={`${heading.className} text-2xl font-semibold text-cyan-700`}>
+                  <p
+                    className={`${heading.className} text-2xl font-semibold text-cyan-700`}
+                  >
                     {stat.value}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
@@ -571,13 +564,13 @@ function AboutSection() {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 mb-3">
                   <Terminal className="h-5 w-5 text-cyan-600" />
-                  <span className="text-sm font-medium">Quick facts</span>
+                  <span className="text-sm font-medium">At a glance</span>
                 </div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>Based in Phnom Penh, Cambodia</li>
                   <li>Open to remote & hybrid roles</li>
-                  <li>Conference speaker (3 events)</li>
-                  <li>Open-source maintainer</li>
+                  <li>Web and mobile application development</li>
+                  <li>Laravel, Vue.js,and Next.js</li>
                 </ul>
               </CardContent>
             </Card>
@@ -599,13 +592,14 @@ function SkillsSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="Skills" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             Technologies I work with
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            I&apos;ve worked across the full stack, from crafting pixel-perfect
-            interfaces to designing distributed backend systems. Here are the
-            tools and technologies I use day-to-day.
+            Tools I use to build and maintain web applications, from user-facing
+            interfaces to backend services.
           </p>
         </motion.div>
 
@@ -667,7 +661,9 @@ function ExperienceSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="Experience" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             Where I&apos;ve worked
           </h2>
         </motion.div>
@@ -734,7 +730,8 @@ function ExperienceSection() {
           </div>
 
           <h4 className="font-medium">
-            Bachelor&apos;s Degree in Information Technology
+            Bachelor&apos;s Degree in Computer Science and Information
+            Technology
           </h4>
 
           <p className="text-muted-foreground">
@@ -758,12 +755,14 @@ function ProjectsSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="Projects" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             Selected work
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            A curated selection of projects that showcase my approach to
-            solving complex problems with clean, thoughtful engineering.
+            A curated selection of projects that showcase my approach to solving
+            complex problems with clean, thoughtful engineering.
           </p>
         </motion.div>
 
@@ -790,7 +789,9 @@ function ProjectsSection() {
 
                   <CardContent className="pt-6">
                     <div className="flex items-start justify-between gap-4 mb-3">
-                      <h3 className={`${heading.className} text-lg font-semibold`}>
+                      <h3
+                        className={`${heading.className} text-lg font-semibold`}
+                      >
                         {project.title}
                       </h3>
                       <div className="flex gap-2 shrink-0">
@@ -849,12 +850,14 @@ function TestimonialsSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="Testimonials" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             What people say
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
-            Kind words from colleagues and clients I&apos;ve had the pleasure
-            of working with over the years.
+            Kind words from colleagues and clients I&apos;ve had the pleasure of
+            working with over the years.
           </p>
         </motion.div>
 
@@ -926,7 +929,9 @@ function ContactSection() {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={fadeUp} className="mb-12">
           <Eyebrow label="Contact" />
-          <h2 className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}>
+          <h2
+            className={`${heading.className} text-3xl md:text-4xl font-semibold tracking-tight`}
+          >
             Let&apos;s work together
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl">
@@ -946,7 +951,12 @@ function ContactSection() {
                       <label htmlFor="name" className="text-sm font-medium">
                         Name
                       </label>
-                      <Input id="name" name="name" placeholder="Your name" required />
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
@@ -1006,7 +1016,7 @@ function ContactSection() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:sophatroeun148@gmail.com"
+                  href="mailto:sokkeang314@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100 transition-colors dark:bg-cyan-950 dark:group-hover:bg-cyan-900">
@@ -1014,11 +1024,11 @@ function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
-                    <p className="text-sm">sophatroeun148@gmail.com</p>
+                    <p className="text-sm">sokkeang314@gmail.com</p>
                   </div>
                 </a>
                 <a
-                  href="https://github.com/SopattRouen"
+                  href="https://github.com/yeavsokkeang"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
@@ -1030,11 +1040,11 @@ function ContactSection() {
                     <p className="text-sm font-medium text-foreground">
                       GitHub
                     </p>
-                    <p className="text-sm">github.com/SopattRouen</p>
+                    <p className="text-sm">github.com/yeavsokkeang</p>
                   </div>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/sophat-roeun-289788336"
+                  href="https://www.linkedin.com/in/yeavsokkeang/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
@@ -1046,7 +1056,7 @@ function ContactSection() {
                     <p className="text-sm font-medium text-foreground">
                       LinkedIn
                     </p>
-                    <p className="text-sm">linkedin.com/in/sophat-roeun</p>
+                    <p className="text-sm">linkedin.com/in/yeavsokkeang</p>
                   </div>
                 </a>
               </div>
@@ -1058,14 +1068,18 @@ function ContactSection() {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-cyan-500 animate-pulse" />
                   <span className="text-sm text-muted-foreground">
-                    Open to full-time & contract roles
+                    Open to Junior Developer, Internship & Entry-Level
+                    Opportunities
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  I&apos;m particularly interested in roles involving system
-                  design, developer tools, and high-performance web
-                  applications. Remote-friendly preferred, and open to hybrid
-                  roles based in Phnom Penh.
+                  I&apos;m I'm looking for opportunities to grow as a Software
+                  Developer, particularly in frontend and full-stack web
+                  development. I'm interested in working with React.js, Next.js,
+                  Vue.js, Laravel, and Express.js. I'm eager to learn from
+                  experienced developers, contribute to real-world projects, and
+                  continue developing my technical skills. Open to opportunities
+                  based in Phnom Penh or remote.
                 </p>
               </CardContent>
             </Card>
@@ -1082,15 +1096,17 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
-            <span className={`${heading.className} font-medium text-foreground`}>
-              &lt;Phat.dev/&gt;
+            <span
+              className={`${heading.className} font-medium text-foreground`}
+            >
+              &lt;Keang.dev/&gt;
             </span>{" "}
             &copy; {new Date().getFullYear()}
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
               <a
-                href="https://github.com/SopattRouen"
+                href="https://github.com/yeavsokkeang"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -1100,7 +1116,7 @@ function Footer() {
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
               <a
-                href="https://www.linkedin.com/in/sophat-roeun-289788336"
+                href="https://www.linkedin.com/in/yeavsokkeang/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -1109,7 +1125,7 @@ function Footer() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-              <a href="mailto:sophatroeun148@gmail.com" aria-label="Email">
+              <a href="mailto:sokkeang314@gmail.com" aria-label="Email">
                 <Mail className="h-4 w-4" />
               </a>
             </Button>
