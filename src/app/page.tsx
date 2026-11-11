@@ -405,8 +405,8 @@ function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
         >
-          Full-Stack Developer building web and mobile applications with
-          Laravel, Vue.js, Next.js.
+          Full-Stack Developer building web applications with Laravel, Vue.js,
+          Next.js.
         </motion.p>
 
         <motion.div
