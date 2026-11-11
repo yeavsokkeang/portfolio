@@ -297,7 +297,7 @@ function Navbar() {
           className={`${heading.className} text-lg font-semibold tracking-tight hover:opacity-70 transition-opacity`}
         >
           <span className="text-cyan-600">&lt;</span>
-          Phat.dev
+          Keang.dev
           <span className="text-cyan-600">/&gt;</span>
         </button>
 
